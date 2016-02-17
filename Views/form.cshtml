@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='Content/css/styles.css'>
+    <title></title>
+  </head>
+  <body>
+    <form action="/" method="post">
+        <input name='player1-input' type='password'>
+        <input name='player2-input' type='password'>
+        <button type='submit' class='btn'>Find out who won!</button>
+    </form>
+
+    @{
+        if(Model.GetP1Name() == "" || Model.GetP2Name()  == "")
+        {
+            <p>Choose your weapons.</p>
+        }else
+        {
+          <h1>@Model.RPSWinner()</h1>
+          <p>Player 1 Used: @Model.GetP1Name()</p>
+          <p>Player 2 Used: @Model.GetP2Name()</p>
+        }
+      }
+  </body>
+</html>

@@ -29,9 +29,20 @@ namespace rpsObjects {
     };
 
     public Game (string player1Input, string player2Input) {
-      _player1Input = player1Input.ToLower();
-      _player2Input = player2Input.ToLower();
+      _player1Input = player1Input;
+      _player2Input = player2Input;
     }
+
+    public string GetP1Name()
+    {
+      return _player1Input;
+    }
+
+    public string GetP2Name()
+    {
+      return _player2Input;
+    }
+
 
     public string RPSWinner(){
 

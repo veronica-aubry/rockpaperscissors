@@ -1,30 +1,22 @@
-// using Nancy;
-// using madLibLibrary;
+using Nancy;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using rpsObjects;
 
-//   namespace test {
-//       public class AlexModule : NancyModule {
-//         public AlexModule() {
+  namespace Project  {
+      public class HomeModule : NancyModule {
+        public HomeModule() {
 
-//         Get["/form"] = _ => {
-//           return View["form.html"];
-//         };
+        Get["/"] = _ => {
+          Game newGame = new Game("","");
+          return View["form.cshtml", newGame];
+        };
 
-//         Get["/story"] = _ => {
-
-//         storyVariables exampleStory = new storyVariables {
-
-//           name1 = Request.Query["name1"],
-//           name2 = Request.Query["name2"],
-//           creature = Request.Query["creature"],
-//           weapon = Request.Query["weapon"],
-//           vehicle = Request.Query["vehicle"],
-//           treasure = Request.Query["treasure"]
-//         };
-//           return View["story.html", exampleStory];
-//         };
-//       }
-//    }
-// }
-
-
-// Test example above
+        Post["/"] = _ => {
+        Game newGame = new Game(Request.Form["player1-input"], Request.Form["player2-input"]);
+          return View["form.cshtml", newGame];
+        };
+      }
+   }
+}
