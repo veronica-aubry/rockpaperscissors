@@ -15,22 +15,21 @@ namespace rpsObjects {
 
     public static Dictionary<string,int> _optionScores = new Dictionary<string,int>
     {
-      {"rock", 4},
+      {"rock", 3},
       {"paper", 2},
       {"scissors", 1}
     };
 
     public static Dictionary<int,string> _optionWins = new Dictionary<int,string>
     {
-      {6, "paper"},
-      {5, "rock"},
+      {5, "paper"},
+      {4, "rock"},
       {3, "scissors"}
-
     };
 
     public Game (string player1Input, string player2Input) {
-      _player1Input = player1Input;
-      _player2Input = player2Input;
+      _player1Input = player1Input.ToLower();
+      _player2Input = player2Input.ToLower();
     }
 
     public string GetP1Name()
@@ -42,6 +41,15 @@ namespace rpsObjects {
     {
       return _player2Input;
     }
+
+    public string RandomPlayer()
+    {
+      Random r = new Random();
+      int RPlayer = r.Next(1,4);
+      _player2Input = _optionScores.FirstOrDefault(x => x.Value == RPlayer).Key;
+      return _player2Input;
+    }
+
 
 
     public string RPSWinner(){

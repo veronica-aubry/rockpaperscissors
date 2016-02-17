@@ -7,9 +7,8 @@
     <title></title>
   </head>
   <body>
-    <form action="/form" method="post">
-        PLAYER 1: <input name='player1-input' type='password'>
-        PLAYER 2: <input name='player2-input' type='password'>
+    <form action="/form-computer" method="post">
+        PLAYER: <input name='player1-input' type='password'>
         <button type='submit' class='btn'>Find out who won!</button>
     </form>
 
@@ -21,7 +20,7 @@
         {
           <h1>@Model.RPSWinner()</h1>
           <p>Player 1 Used: @Model.GetP1Name()</p>
-          <p>Player 2 Used: @Model.GetP2Name()</p>
+          <p>Computer Used: @Model.GetP2Name()</p>
         }
       }
   </body>
